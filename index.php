@@ -58,16 +58,30 @@
 <body>
 
     <div class="container">
-        <h1>Ecco l'elenco degli hotel</h1>
-
-        <?php foreach($hotels as $hotel) { ?>  
-            <p> <?php echo $hotel["name"]; ?></p>
-            <p> <?php echo $hotel["description"]; ?></p>
-            <p> <?php echo $hotel["parking"]; ?></p>
-            <p> <?php echo $hotel["vote"]; ?></p>
-            <p> <?php echo $hotel["distance to center"]; ?></p>
-        <?php } ?>
-    </div>
-    
+        <h1 class="text-center my-5">Ecco l'elenco degli hotel</h1>
+        
+        <table class=" table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance to center</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($hotels as $hotel) { ?>  
+                    <tr>
+                        <th><?php echo $hotel["name"]; ?></th>
+                        <td><?php echo $hotel["description"]; ?></td>
+                        <td><?php echo $hotel["parking"] ? 'Disponibile' : 'Non Disponibile'; ?></td>
+                        <td><?php echo $hotel["vote"]; ?></td>
+                        <td><?php echo $hotel["distance_to_center"]; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div> 
 </body>
 </html>
